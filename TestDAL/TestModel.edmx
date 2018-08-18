@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="testDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PraxellMedia">
+          <Key>
+            <PropertyRef Name="repTransId" />
+          </Key>
+          <Property Name="repTransId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serverData" Type="nvarchar" MaxLength="50" />
+          <Property Name="serverTime" Type="datetime" />
+          <Property Name="TransactionDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransactionTime" Type="datetime" />
+          <Property Name="TransactionID" Type="bigint" />
+          <Property Name="Activity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="bigint" />
+          <Property Name="Currency" Type="nchar" MaxLength="10" />
+          <Property Name="decimalCurrency" Type="tinyint" />
+          <Property Name="orderID" Type="nvarchar" MaxLength="50" />
+          <Property Name="cardNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="cardSerialNumber" Type="bigint" />
+          <Property Name="cardIssuerSN" Type="nchar" MaxLength="5" />
+          <Property Name="cardIssuerPNumber" Type="int" />
+          <Property Name="cardSeriesNumber" Type="nchar" MaxLength="3" />
+          <Property Name="cardBatchNumber" Type="nchar" MaxLength="5" />
+          <Property Name="actionNetworkID" Type="nchar" MaxLength="10" />
+          <Property Name="actionVendorPNumber" Type="nchar" MaxLength="10" />
+          <Property Name="actionStoreId" Type="nchar" MaxLength="10" />
+          <Property Name="actionStorePNumber" Type="nchar" MaxLength="10" />
+          <Property Name="actionCashierId" Type="nchar" MaxLength="5" />
+          <Property Name="actionTicketId" Type="nchar" MaxLength="10" />
+          <Property Name="actionType" Type="nchar" MaxLength="2" />
+          <Property Name="cardExpirationDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="VoidTransactionServerDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="VoidTransactionServerTime" Type="datetime" />
+          <Property Name="VoidTransactionDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="VoidTransaction" Type="datetime" />
+          <Property Name="VoidTransactionID" Type="bigint" />
+          <Property Name="VoidTransactionOrderID" Type="nvarchar" MaxLength="50" />
+          <Property Name="VoidTransactionActionNetworkID" Type="nchar" MaxLength="10" />
+          <Property Name="VoidTransactionActionVendorPNumber" Type="int" />
+          <Property Name="VoidTransactionActionStoreId" Type="nchar" MaxLength="10" />
+          <Property Name="VoidTransactionActionStorePNumber" Type="nchar" MaxLength="10" />
+          <Property Name="VoidTransactionActionCashierId" Type="nchar" MaxLength="5" />
+          <Property Name="VoidTransactionActionTicketId" Type="nchar" MaxLength="10" />
+          <Property Name="VoidTransactionActionType" Type="nchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="T_Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cust_id" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="cust_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idd" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReservedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_Orders">
+          <Key>
+            <PropertyRef Name="ord_id" />
+          </Key>
+          <Property Name="ord_id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ord_desc" Type="nchar" MaxLength="10" />
+          <Property Name="ord_cust_id" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <Function Name="GetCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_GetAllCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="decimal" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="testDBModelStoreContainer">
+          <EntitySet Name="PraxellMedia" EntityType="Self.PraxellMedia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Customers" EntityType="Self.T_Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Orders" EntityType="Self.T_Orders" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="testDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PraxellMedia">
+          <Key>
+            <PropertyRef Name="repTransId" />
+          </Key>
+          <Property Name="repTransId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serverData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serverTime" Type="DateTime" Precision="3" />
+          <Property Name="TransactionDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionTime" Type="DateTime" Precision="3" />
+          <Property Name="TransactionID" Type="Int64" />
+          <Property Name="Activity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Int64" />
+          <Property Name="Currency" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="decimalCurrency" Type="Byte" />
+          <Property Name="orderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cardSerialNumber" Type="Int64" />
+          <Property Name="cardIssuerSN" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="cardIssuerPNumber" Type="Int32" />
+          <Property Name="cardSeriesNumber" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="cardBatchNumber" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="actionNetworkID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="actionVendorPNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="actionStoreId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="actionStorePNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="actionCashierId" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="actionTicketId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="actionType" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="cardExpirationDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VoidTransactionServerDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VoidTransactionServerTime" Type="DateTime" Precision="3" />
+          <Property Name="VoidTransactionDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VoidTransaction" Type="DateTime" Precision="3" />
+          <Property Name="VoidTransactionID" Type="Int64" />
+          <Property Name="VoidTransactionOrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VoidTransactionActionNetworkID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VoidTransactionActionVendorPNumber" Type="Int32" />
+          <Property Name="VoidTransactionActionStoreId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VoidTransactionActionStorePNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VoidTransactionActionCashierId" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="VoidTransactionActionTicketId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VoidTransactionActionType" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="T_Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="cust_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cust_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idd" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReservedTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Orders">
+          <Key>
+            <PropertyRef Name="ord_id" />
+          </Key>
+          <Property Name="ord_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ord_desc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ord_cust_id" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="testDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PraxellMedia" EntityType="Self.PraxellMedia" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="T_Customers" EntityType="Self.T_Customers" />
+          <EntitySet Name="T_Orders" EntityType="Self.T_Orders" />
+          <FunctionImport Name="SP_GetAllCustomers" ReturnType="Collection(testDBModel.SP_GetAllCustomers_Result)" />
+          <FunctionImport Name="GetCustomers" ReturnType="Collection(testDBModel.GetCustomers_Result)" />
+          <FunctionImport Name="UpdateCustomer">
+            <Parameter Name="ID" Mode="In" Type="Decimal" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_GetAllCustomers_Result">
+          <Property Type="Decimal" Name="id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="cust_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cust_name" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="idd" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="ReservedTime" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetCustomers_Result">
+          <Property Type="Decimal" Name="cust_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cust_name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="testDBModelStoreContainer" CdmEntityContainer="testDBEntities">
+          <EntitySetMapping Name="PraxellMedia">
+            <EntityTypeMapping TypeName="testDBModel.PraxellMedia">
+              <MappingFragment StoreEntitySet="PraxellMedia">
+                <ScalarProperty Name="repTransId" ColumnName="repTransId" />
+                <ScalarProperty Name="serverData" ColumnName="serverData" />
+                <ScalarProperty Name="serverTime" ColumnName="serverTime" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="Activity" ColumnName="Activity" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="decimalCurrency" ColumnName="decimalCurrency" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+                <ScalarProperty Name="cardNumber" ColumnName="cardNumber" />
+                <ScalarProperty Name="cardSerialNumber" ColumnName="cardSerialNumber" />
+                <ScalarProperty Name="cardIssuerSN" ColumnName="cardIssuerSN" />
+                <ScalarProperty Name="cardIssuerPNumber" ColumnName="cardIssuerPNumber" />
+                <ScalarProperty Name="cardSeriesNumber" ColumnName="cardSeriesNumber" />
+                <ScalarProperty Name="cardBatchNumber" ColumnName="cardBatchNumber" />
+                <ScalarProperty Name="actionNetworkID" ColumnName="actionNetworkID" />
+                <ScalarProperty Name="actionVendorPNumber" ColumnName="actionVendorPNumber" />
+                <ScalarProperty Name="actionStoreId" ColumnName="actionStoreId" />
+                <ScalarProperty Name="actionStorePNumber" ColumnName="actionStorePNumber" />
+                <ScalarProperty Name="actionCashierId" ColumnName="actionCashierId" />
+                <ScalarProperty Name="actionTicketId" ColumnName="actionTicketId" />
+                <ScalarProperty Name="actionType" ColumnName="actionType" />
+                <ScalarProperty Name="cardExpirationDate" ColumnName="cardExpirationDate" />
+                <ScalarProperty Name="VoidTransactionServerDate" ColumnName="VoidTransactionServerDate" />
+                <ScalarProperty Name="VoidTransactionServerTime" ColumnName="VoidTransactionServerTime" />
+                <ScalarProperty Name="VoidTransactionDate" ColumnName="VoidTransactionDate" />
+                <ScalarProperty Name="VoidTransaction" ColumnName="VoidTransaction" />
+                <ScalarProperty Name="VoidTransactionID" ColumnName="VoidTransactionID" />
+                <ScalarProperty Name="VoidTransactionOrderID" ColumnName="VoidTransactionOrderID" />
+                <ScalarProperty Name="VoidTransactionActionNetworkID" ColumnName="VoidTransactionActionNetworkID" />
+                <ScalarProperty Name="VoidTransactionActionVendorPNumber" ColumnName="VoidTransactionActionVendorPNumber" />
+                <ScalarProperty Name="VoidTransactionActionStoreId" ColumnName="VoidTransactionActionStoreId" />
+                <ScalarProperty Name="VoidTransactionActionStorePNumber" ColumnName="VoidTransactionActionStorePNumber" />
+                <ScalarProperty Name="VoidTransactionActionCashierId" ColumnName="VoidTransactionActionCashierId" />
+                <ScalarProperty Name="VoidTransactionActionTicketId" ColumnName="VoidTransactionActionTicketId" />
+                <ScalarProperty Name="VoidTransactionActionType" ColumnName="VoidTransactionActionType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="testDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Customers">
+            <EntityTypeMapping TypeName="testDBModel.T_Customers">
+              <MappingFragment StoreEntitySet="T_Customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+                <ScalarProperty Name="idd" ColumnName="idd" />
+                <ScalarProperty Name="ReservedTime" ColumnName="ReservedTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Orders">
+            <EntityTypeMapping TypeName="testDBModel.T_Orders">
+              <MappingFragment StoreEntitySet="T_Orders">
+                <ScalarProperty Name="ord_id" ColumnName="ord_id" />
+                <ScalarProperty Name="ord_desc" ColumnName="ord_desc" />
+                <ScalarProperty Name="ord_cust_id" ColumnName="ord_cust_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetAllCustomers" FunctionName="testDBModel.Store.SP_GetAllCustomers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="testDBModel.SP_GetAllCustomers_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+                <ScalarProperty Name="idd" ColumnName="idd" />
+                <ScalarProperty Name="ReservedTime" ColumnName="ReservedTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetCustomers" FunctionName="testDBModel.Store.GetCustomers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="testDBModel.GetCustomers_Result">
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdateCustomer" FunctionName="testDBModel.Store.UpdateCustomer" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

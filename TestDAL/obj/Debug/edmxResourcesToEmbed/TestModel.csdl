@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PraxellMedia">
+    <Key>
+      <PropertyRef Name="repTransId" />
+    </Key>
+    <Property Name="repTransId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="serverData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="serverTime" Type="DateTime" Precision="3" />
+    <Property Name="TransactionDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionTime" Type="DateTime" Precision="3" />
+    <Property Name="TransactionID" Type="Int64" />
+    <Property Name="Activity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Int64" />
+    <Property Name="Currency" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="decimalCurrency" Type="Byte" />
+    <Property Name="orderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cardSerialNumber" Type="Int64" />
+    <Property Name="cardIssuerSN" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="cardIssuerPNumber" Type="Int32" />
+    <Property Name="cardSeriesNumber" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="cardBatchNumber" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="actionNetworkID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="actionVendorPNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="actionStoreId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="actionStorePNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="actionCashierId" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="actionTicketId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="actionType" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="cardExpirationDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VoidTransactionServerDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VoidTransactionServerTime" Type="DateTime" Precision="3" />
+    <Property Name="VoidTransactionDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VoidTransaction" Type="DateTime" Precision="3" />
+    <Property Name="VoidTransactionID" Type="Int64" />
+    <Property Name="VoidTransactionOrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VoidTransactionActionNetworkID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VoidTransactionActionVendorPNumber" Type="Int32" />
+    <Property Name="VoidTransactionActionStoreId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VoidTransactionActionStorePNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VoidTransactionActionCashierId" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="VoidTransactionActionTicketId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VoidTransactionActionType" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_Customers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="cust_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="cust_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idd" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReservedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_Orders">
+    <Key>
+      <PropertyRef Name="ord_id" />
+    </Key>
+    <Property Name="ord_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ord_desc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ord_cust_id" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="testDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PraxellMedia" EntityType="Self.PraxellMedia" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="T_Customers" EntityType="Self.T_Customers" />
+    <EntitySet Name="T_Orders" EntityType="Self.T_Orders" />
+    <FunctionImport Name="SP_GetAllCustomers" ReturnType="Collection(testDBModel.SP_GetAllCustomers_Result)" />
+    <FunctionImport Name="GetCustomers" ReturnType="Collection(testDBModel.GetCustomers_Result)" />
+    <FunctionImport Name="UpdateCustomer">
+      <Parameter Name="ID" Mode="In" Type="Decimal" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_GetAllCustomers_Result">
+    <Property Type="Decimal" Name="id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="cust_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="cust_name" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="idd" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="ReservedTime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetCustomers_Result">
+    <Property Type="Decimal" Name="cust_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="cust_name" Nullable="false" MaxLength="50" />
+  </ComplexType>
+</Schema>

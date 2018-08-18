@@ -1,0 +1,12 @@
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\TestDAL.dll
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\TestDAL.pdb
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\obj\Debug\TestDAL.csprojResolveAssemblyReference.cache
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\obj\Debug\TestDAL.dll
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\obj\Debug\TestDAL.pdb
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\TestBizModels.dll
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\TestBizModels.pdb
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\TestDAL.dll.config
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\EntityFramework.dll
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\EntityFramework.SqlServer.dll
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\EntityFramework.xml
+F:\tmp\testprod\Test\TestConsoleApplication\TestDAL\bin\Debug\EntityFramework.SqlServer.xml

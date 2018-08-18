@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="testDBModelStoreContainer" CdmEntityContainer="testDBEntities">
+    <EntitySetMapping Name="PraxellMedia">
+      <EntityTypeMapping TypeName="testDBModel.PraxellMedia">
+        <MappingFragment StoreEntitySet="PraxellMedia">
+          <ScalarProperty Name="repTransId" ColumnName="repTransId" />
+          <ScalarProperty Name="serverData" ColumnName="serverData" />
+          <ScalarProperty Name="serverTime" ColumnName="serverTime" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="decimalCurrency" ColumnName="decimalCurrency" />
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+          <ScalarProperty Name="cardNumber" ColumnName="cardNumber" />
+          <ScalarProperty Name="cardSerialNumber" ColumnName="cardSerialNumber" />
+          <ScalarProperty Name="cardIssuerSN" ColumnName="cardIssuerSN" />
+          <ScalarProperty Name="cardIssuerPNumber" ColumnName="cardIssuerPNumber" />
+          <ScalarProperty Name="cardSeriesNumber" ColumnName="cardSeriesNumber" />
+          <ScalarProperty Name="cardBatchNumber" ColumnName="cardBatchNumber" />
+          <ScalarProperty Name="actionNetworkID" ColumnName="actionNetworkID" />
+          <ScalarProperty Name="actionVendorPNumber" ColumnName="actionVendorPNumber" />
+          <ScalarProperty Name="actionStoreId" ColumnName="actionStoreId" />
+          <ScalarProperty Name="actionStorePNumber" ColumnName="actionStorePNumber" />
+          <ScalarProperty Name="actionCashierId" ColumnName="actionCashierId" />
+          <ScalarProperty Name="actionTicketId" ColumnName="actionTicketId" />
+          <ScalarProperty Name="actionType" ColumnName="actionType" />
+          <ScalarProperty Name="cardExpirationDate" ColumnName="cardExpirationDate" />
+          <ScalarProperty Name="VoidTransactionServerDate" ColumnName="VoidTransactionServerDate" />
+          <ScalarProperty Name="VoidTransactionServerTime" ColumnName="VoidTransactionServerTime" />
+          <ScalarProperty Name="VoidTransactionDate" ColumnName="VoidTransactionDate" />
+          <ScalarProperty Name="VoidTransaction" ColumnName="VoidTransaction" />
+          <ScalarProperty Name="VoidTransactionID" ColumnName="VoidTransactionID" />
+          <ScalarProperty Name="VoidTransactionOrderID" ColumnName="VoidTransactionOrderID" />
+          <ScalarProperty Name="VoidTransactionActionNetworkID" ColumnName="VoidTransactionActionNetworkID" />
+          <ScalarProperty Name="VoidTransactionActionVendorPNumber" ColumnName="VoidTransactionActionVendorPNumber" />
+          <ScalarProperty Name="VoidTransactionActionStoreId" ColumnName="VoidTransactionActionStoreId" />
+          <ScalarProperty Name="VoidTransactionActionStorePNumber" ColumnName="VoidTransactionActionStorePNumber" />
+          <ScalarProperty Name="VoidTransactionActionCashierId" ColumnName="VoidTransactionActionCashierId" />
+          <ScalarProperty Name="VoidTransactionActionTicketId" ColumnName="VoidTransactionActionTicketId" />
+          <ScalarProperty Name="VoidTransactionActionType" ColumnName="VoidTransactionActionType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="testDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Customers">
+      <EntityTypeMapping TypeName="testDBModel.T_Customers">
+        <MappingFragment StoreEntitySet="T_Customers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+          <ScalarProperty Name="idd" ColumnName="idd" />
+          <ScalarProperty Name="ReservedTime" ColumnName="ReservedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Orders">
+      <EntityTypeMapping TypeName="testDBModel.T_Orders">
+        <MappingFragment StoreEntitySet="T_Orders">
+          <ScalarProperty Name="ord_id" ColumnName="ord_id" />
+          <ScalarProperty Name="ord_desc" ColumnName="ord_desc" />
+          <ScalarProperty Name="ord_cust_id" ColumnName="ord_cust_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetAllCustomers" FunctionName="testDBModel.Store.SP_GetAllCustomers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="testDBModel.SP_GetAllCustomers_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+          <ScalarProperty Name="idd" ColumnName="idd" />
+          <ScalarProperty Name="ReservedTime" ColumnName="ReservedTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomers" FunctionName="testDBModel.Store.GetCustomers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="testDBModel.GetCustomers_Result">
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateCustomer" FunctionName="testDBModel.Store.UpdateCustomer" />
+  </EntityContainerMapping>
+</Mapping>
